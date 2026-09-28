@@ -1,0 +1,530 @@
+/* ======================
+   THEME TOKENS (DARK & LIGHT)
+   ====================== */
+.app.dark {
+  --bg: #0c0c0c;
+  --bg-elevated: #161616;
+  --bg-card: #1a1a1a;
+  --bg-card-hover: #222222;
+  --text: #ececec;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-subtle: rgba(59, 130, 246, 0.12);
+  --border: #262626;
+  --border-hover: #3b82f6;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.6);
+  --toggle-bg: #333333;
+  --input-bg: #141414;
+}
+
+.app.light {
+  --bg: #fafafa;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f4f6;
+  --text: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-subtle: rgba(37, 99, 235, 0.08);
+  --border: #e5e7eb;
+  --border-hover: #2563eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.08);
+  --toggle-bg: #d1d5db;
+  --input-bg: #f9fafb;
+}
+
+/* ======================
+   APP SHELL
+   ====================== */
+.app {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+  line-height: 1.6;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 100px 32px 60px;
+}
+
+/* ======================
+   NAVBAR
+   ====================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 32px;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.25s ease, border-color 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: var(--accent-subtle);
+}
+
+.nav-links a.active {
+  color: var(--accent);
+  background: var(--accent-subtle);
+  font-weight: 600;
+}
+
+/* Theme Toggle Button */
+.toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.toggle-track {
+  position: relative;
+  width: 42px;
+  height: 22px;
+  background: var(--toggle-bg);
+  border-radius: 11px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease;
+  padding: 0;
+}
+
+.toggle-track.on {
+  background: var(--accent);
+}
+
+.toggle-knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.toggle-track.on .toggle-knob {
+  transform: translateX(20px);
+}
+
+/* ======================
+   HERO / HEADER
+   ====================== */
+.hero {
+  padding: 40px 0 36px;
+}
+
+.hero-greeting {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.hero-name {
+  font-size: 2.9rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.hero-role {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 580px;
+}
+
+.hero-divider {
+  width: 44px;
+  height: 3px;
+  border: none;
+  border-radius: 2px;
+  margin-top: 32px;
+}
+
+/* ======================
+   SECTION HEADINGS
+   ====================== */
+.section-heading {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+/* ======================
+   ABOUT
+   ====================== */
+.about {
+  padding: 38px 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-text {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* ======================
+   SKILLS
+   ====================== */
+.skills {
+  padding: 38px 0;
+  border-top: 1px solid var(--border);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  color: var(--accent);
+  border-color: var(--border-hover);
+  background: var(--accent-subtle);
+  transform: translateY(-2px);
+}
+
+/* ======================
+   PROJECTS
+   ====================== */
+.projects {
+  padding: 20px 0 40px;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.tech-used {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-used span {
+  display: inline-flex;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border-radius: 4px;
+}
+
+/* ======================
+   CONTACT FORM & CONTROLLED INPUTS
+   ====================== */
+.contact {
+  padding: 20px 0 40px;
+}
+
+.tip-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  margin-bottom: 16px;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.tip-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tip-box {
+  background: var(--accent-subtle);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.contact textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.char-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-top: 4px;
+}
+
+.char-count.warning {
+  color: #f59e0b;
+}
+
+.contact button[type="submit"] {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 26px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.contact button[type="submit"]:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.contact button[type="submit"]:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sent-msg {
+  background: var(--accent-subtle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-align: center;
+  padding: 32px;
+  font-size: 1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ======================
+   404 NOT FOUND
+   ====================== */
+.not-found {
+  text-align: center;
+  padding: 70px 0;
+}
+
+.not-found h1 {
+  font-size: 5.5rem;
+  font-weight: 900;
+  color: var(--border-hover);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.not-found p {
+  color: var(--text-secondary);
+  margin: 14px 0 24px;
+  font-size: 1.05rem;
+}
+
+.not-found a {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.not-found a:hover {
+  background: var(--accent-hover);
+}
+
+/* ======================
+   FOOTER
+   ====================== */
+.footer {
+  padding: 36px 0;
+  margin-top: 44px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.footer p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer .copy {
+  margin-top: 6px;
+  font-size: 0.75rem;
+}
+
+/* ======================
+   RESPONSIVE
+   ====================== */
+@media (max-width: 768px) {
+  main { padding: 84px 24px 48px; }
+  .hero-name { font-size: 2.2rem; }
+  .navbar { padding: 0 20px; }
+}
+
+@media (max-width: 540px) {
+  main { padding: 74px 16px 40px; }
+  .navbar { padding: 0 14px; height: 54px; }
+  .nav-links a { padding: 5px 8px; font-size: 0.78rem; }
+  .toggle-label { display: none; }
+  .hero-name { font-size: 1.8rem; }
+  .project-card { padding: 18px; }
+}
