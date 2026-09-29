@@ -20,6 +20,16 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# OS Files
+# OS & IDE Files
 .DS_Store
 Thumbs.db
+.vscode/
+
+# PDFs & Screenshots & Dev Scripts
+*.pdf
+screenshots/
+capture_*.js
+generate_pdfs.py
+clean_script.py
+screenshot_*.png
+Mantyzz/
